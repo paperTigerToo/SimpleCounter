@@ -25,15 +25,16 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(it.context, "Clicked Button!", Toast.LENGTH_SHORT).show()
             count += incrementBy
             txtView.text = count.toString()
-        }
 
-        if(count>=10) {
-            buttonUpgrade.visibility = View.VISIBLE
 
-            buttonUpgrade.setOnClickListener {
-                incrementBy = 2
-                button.text = "ADD ${incrementBy.toString()}"
-                buttonUpgrade.visibility = View.INVISIBLE
+            if (count >= 10) {
+                buttonUpgrade.visibility = View.VISIBLE
+
+                buttonUpgrade.setOnClickListener {
+                    incrementBy = 2
+                    button.text = "ADD ${incrementBy.toString()}"
+                    buttonUpgrade.visibility = View.INVISIBLE
+                }
             }
         }
 
