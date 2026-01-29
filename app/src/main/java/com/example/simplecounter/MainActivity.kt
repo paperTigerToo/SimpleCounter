@@ -11,6 +11,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        val button = findViewById<Button>(R.id.button)
+        val txtView = findViewById<TextView>(R.id.textView)
+
+        var count = 0
+        txtView.text = count.toString()
+        button.setOnClickListener {
+            Toast.makeText(it.context, "Clicked Button!", Toast.LENGTH_SHORT).show()
+            count +=1
+            txtView.text = count.toString()
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
